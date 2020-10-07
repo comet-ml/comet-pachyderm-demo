@@ -1,0 +1,25 @@
+{
+  "pipeline": {
+    "name": "comet-pachyderm"
+  },
+  "description": "A pipeline that performs image edge detection by using the OpenCV library.",
+  "input": {
+    "pfs": {
+      "glob": "/",
+      "repo": "mnist-input"
+    }
+  },
+  "transform": {
+    "cmd": [
+      "python3",
+      "/train.py"
+    ],
+    "image": "comet-pachyderm:latest",
+    "env": {
+      "PACH_BASE_URL": "<YOUR PACHYDERM URL>",
+      "COMET_API_KEY": "<YOUR API KEY>",
+      "COMET_PROJECT_NAME": "pachyderm-demo",
+      "INPUT_REPO_NAME": "mnist-input"
+    }
+  }
+}
